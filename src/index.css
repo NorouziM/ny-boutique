@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+}
+nav,
+.form {
+  font-family: "Montserrat", sans-serif;
+}

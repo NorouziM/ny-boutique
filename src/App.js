@@ -1,35 +1,34 @@
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import React from "react";
+
 import "./App.css";
 import Homepage from "./pages/Homepage.jsx";
-import Nav from "./components/Nav";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Shop from "./pages/Shop";
+import Checkout from "./pages/Checkout";
 import LoginRegister from "./pages/LoginRegister.jsx";
-import React from "react";
+
+import Nav from "./components/Nav";
+
 import { auth, createUser } from "./firebase.util";
+
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/userActions";
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null,
-    };
-  }
   componentDidMount() {
+    const { setCurrentUser } = this.props;
+
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      const userRef = await createUser(userAuth);
-      if (userRef) {
+      if (userAuth) {
+        const userRef = await createUser(userAuth);
+
         userRef.onSnapshot((snapShot) => {
-          this.setState(
-            {
-              currentUser: {
-                id: snapShot.id,
-                ...snapShot.data(),
-              },
-            },
-            () => console.log(this.state)
-          );
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
         });
-        console.log(userRef.get(), "GET");
-        console.log(userRef.onSnapshot(), "onSnapshot");
+      } else {
+        setCurrentUser(null);
       }
     });
   }
@@ -39,19 +38,27 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Nav currentUser={this.state.currentUser} />
+        <Nav />
         <Route exact path="/">
           <Homepage />.
         </Route>
-        <Route exact path="/shop">
+        <Route path="/shop">
           <Shop />
         </Route>
+        <Route exact path="/checkout">
+          <Checkout />
+        </Route>
         <Route exact path="/login">
-          <LoginRegister />
+          {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
         </Route>
       </Router>
     );
   }
 }
-
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);

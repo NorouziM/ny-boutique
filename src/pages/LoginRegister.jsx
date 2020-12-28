@@ -8,9 +8,7 @@ class LoginRegister extends Component {
         this.state = { page:"login" }
     }
     formHandle = (page) =>{
-        console.log(this.state.page,'before');
         this.setState({ page:page });
-        console.log(this.state.page,'after');
     }
     render() { 
         return  (this.state.page==="login") ?  <LoginForm formHandle={this.formHandle} />  : <RegisterForm formHandle={this.formHandle} /> ;

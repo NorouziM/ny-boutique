@@ -1,6 +1,7 @@
 import React from "react";
-
-function CollectionPreview({ title, items }) {
+import { connect } from "react-redux";
+import { addItem, addPrice } from "./../redux/cartActions";
+function CollectionPreview({ title, items, addItem, addPrice }) {
   return (
     <div>
       <div className="mx-auto text-center mt-5 ">
@@ -11,19 +12,31 @@ function CollectionPreview({ title, items }) {
           .filter((item, index) => index < 4)
           .map((item) => {
             return (
-              <div className="col-span-1 mx-auto mb-10 mx-10">
-                <div
-                  style={{ height: "29rem", width: "26rem" }}
-                  className="overflow-hidden "
-                >
-                  <img
-                    style={{ minWidth: "350px", width: "26rem" }}
-                    src={item.imageUrl}
-                  />
-                </div>
-                <div className="flex justify-between mt-2">
-                  <h2 className="text-2xl">{item.name}</h2>
-                  <h2 className="text-2xl">{item.price}$</h2>
+              <div>
+                <div className="flex flex-col justify-center items-center max-w-sm mx-auto my-8">
+                  <div
+                    style={{ backgroundImage: `url(${item.imageUrl}` }}
+                    className="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center"
+                  ></div>
+                  <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
+                    <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+                      {item.name}
+                    </div>
+                    <div className="flex items-center justify-between py-2 px-3 bg-gray-300">
+                      <h1 className="text-gray-800 font-bold ">
+                        ${item.price}
+                      </h1>
+                      <button
+                        onClick={() => {
+                          addItem(item);
+                          addPrice(item.price);
+                        }}
+                        className="bg-gray-700 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700"
+                      >
+                        Add to cart
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -32,5 +45,11 @@ function CollectionPreview({ title, items }) {
     </div>
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItem: (item) => dispatch(addItem(item)),
+    addPrice: (price) => dispatch(addPrice(price)),
+  };
+};
 
-export default CollectionPreview;
+export default connect(null, mapDispatchToProps)(CollectionPreview);

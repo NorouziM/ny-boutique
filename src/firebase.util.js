@@ -1,4 +1,5 @@
 import firebase from "firebase";
+
 var firebaseConfig = {
   apiKey: "AIzaSyDQWGf7WQS185rCp2_-Zko24cTyCQnPHcw",
   authDomain: "ny-boutique.firebaseapp.com",
@@ -20,17 +21,22 @@ firebase.analytics();
 export const auth = firebase.auth();
 export const db = firebase.firestore();
 
-export const createUser = async (user) => {
+export const createUser = async (user, additionalData) => {
   if (!user) return;
+
   const { displayName, email } = user;
+
   const userRef = db.doc(`users/${user.uid}`);
-  const snapShot = await userRef.onSnapshot();
+  const snapShot = await userRef.get();
   if (!snapShot.exists) {
+    var createdAt = new Date();
+
     try {
-      userRef.set({
-        displayName: displayName,
-        email: email,
-        createdAt: new Date(),
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
       });
     } catch (err) {
       console.log(err.message);

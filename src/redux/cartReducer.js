@@ -1,8 +1,8 @@
+import { deacreaseQuantityFunc } from "./cartUtils";
 import { addToCart } from "./cartUtils";
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
-  Price: 0,
 };
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -18,22 +18,23 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       };
     }
 
-    case "ADD_PRICE": {
+    case "REMOVE_ITEM_FROM_CART": {
       return {
         ...state,
-        Price: state.Price + action.payload,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload
+        ),
       };
     }
-    case "REMOVE_ITEM": {
-      const newItems = state.item.filter((item) => item != action.payload);
+    case "DECREASE_QUANTITY": {
+      console.log("DECREASE_QUANTITY");
       return {
         ...state,
-        ...newItems,
+        cartItems: deacreaseQuantityFunc(state.cartItems, action.payload),
       };
     }
-
     default:
-      return { ...state };
+      return state;
   }
 };
 

@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage.jsx";
 import Shop from "./pages/Shop";
 import Checkout from "./pages/Checkout";
 import LoginRegister from "./pages/LoginRegister.jsx";
+import Category from "./pages/Category";
 
 import Nav from "./components/Nav";
 
@@ -42,8 +43,11 @@ class App extends React.Component {
         <Route exact path="/">
           <Homepage />.
         </Route>
-        <Route path="/shop">
+        <Route exact path="/shop">
           <Shop />
+        </Route>
+        <Route path="/shop/:category">
+          <Category />
         </Route>
         <Route exact path="/checkout">
           <Checkout />

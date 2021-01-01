@@ -8,7 +8,7 @@ import Cart from "./Cart/Cart";
 import CartDropdown from "./Cart/CartDropdown";
 function Nav({ currentUser, hidden }) {
   return (
-    <nav className="flex items-center justify-between px-6 bg-gray-50 dark:bg-gray-800 shadow">
+    <nav className="flex items-center fixed top-0 w-full justify-between px-6 bg-gray-50 dark:bg-gray-800 shadow z-10">
       <a className="text-gray-700 dark:text-gray-400" href="#">
         <Link to="/">
           <img

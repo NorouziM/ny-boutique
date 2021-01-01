@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import CartItem from "./CartItem";
 import CartCheckout from "./CartCheckout";
-import { selectCartItems } from "./../../redux/cartUtils";
+import { selectCartItems, selectTotalPrice } from "./../../redux/cartUtils";
 
-export const CartDropdown = ({ cartItems, Price }) => {
+export const CartDropdown = ({ cartItems, TotalPrice }) => {
   return (
     <div>
       <div className="absolute right-6 rounded-b border-t-0 z-10">
@@ -22,7 +22,7 @@ export const CartDropdown = ({ cartItems, Price }) => {
           </div>
         </div>
         <div className="h-full shadow-xl">
-          <CartCheckout price={Price} />
+          <CartCheckout TotalPrice={TotalPrice} />
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@ export const CartDropdown = ({ cartItems, Price }) => {
 
 const mapStateToProps = (state) => ({
   cartItems: selectCartItems(state),
-  Price: state.cart.Price,
+  TotalPrice: selectTotalPrice(state),
 });
 
 export default connect(mapStateToProps)(CartDropdown);

@@ -7,12 +7,11 @@ export const addItem = (item) => ({
   type: "ADD_ITEM",
   payload: item,
 });
-
-export const addPrice = (price) => ({
-  type: "ADD_PRICE",
-  payload: price,
+export const removeItemFromCart = (id) => ({
+  type: "REMOVE_ITEM_FROM_CART",
+  payload: id,
 });
-export const removeItem = (item) => ({
-  type: "REMOVE_ITEM",
+export const decreaseQuantity = (item) => ({
+  type: "DECREASE_QUANTITY",
   payload: item,
 });

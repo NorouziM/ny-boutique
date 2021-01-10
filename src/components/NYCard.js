@@ -2,9 +2,9 @@ import { CardBody } from "@windmill/react-ui";
 
 import React from "react";
 
-export default function NYCard({ size, title, imageUrl, linkUrl }) {
+export default function NYCard({ size, title, imageUrl }) {
   var classString = "mx-3 md:ml-3 border-2 border-black shadow-lg mb-3 ";
-  if (size == "large") classString += "col-span-6";
+  if (size === "large") classString += "col-span-6";
   else classString += "col-span-4";
 
   return (

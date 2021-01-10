@@ -5,6 +5,12 @@ const INITIAL_STATE = {
 
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case "FETCH_SHOP_DATA": {
+      return {
+        ...state,
+        SHOP_DATA: action.payload,
+      };
+    }
     default:
       return state;
   }

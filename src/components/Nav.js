@@ -9,7 +9,7 @@ import CartDropdown from "./Cart/CartDropdown";
 function Nav({ currentUser, hidden }) {
   return (
     <nav className="flex items-center fixed top-0 w-full justify-between px-6 bg-gray-50 dark:bg-gray-800 shadow z-10">
-      <a className="text-gray-700 dark:text-gray-400" href="#">
+      <a className="text-gray-700 dark:text-gray-400" href="/#">
         <Link to="/">
           <img
             className="w-24 h-24 text-purple-600 ml-8"
@@ -19,7 +19,7 @@ function Nav({ currentUser, hidden }) {
         </Link>
       </a>
       <ul className="flex space-x-4">
-        <label for="menu-toggle" class="pointer-cursor lg:hidden block">
+        <label htmlFor="menu-toggle" className="pointer-cursor lg:hidden block">
           <title>menu</title>
           <svg
             className="fill-current text-gray-900"

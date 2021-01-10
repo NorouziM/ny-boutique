@@ -1,4 +1,3 @@
-import { createStore } from "redux";
 import { createSelector } from "reselect";
 
 export const addToCart = (cartItems, newCartItem) => {
@@ -30,7 +29,7 @@ export const deacreaseQuantityFunc = (cartItems, cartItemToEdit) => {
           : cartItem
       );
     } else {
-      return cartItems.filter((cartItem) => cartItem.id != cartItemToEdit.id);
+      return cartItems.filter((cartItem) => cartItem.id !== cartItemToEdit.id);
     }
   }
   return cartItems;

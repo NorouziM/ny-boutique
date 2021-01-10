@@ -59,7 +59,7 @@ class RegisterForm extends Component {
             <Input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label HtmlFor="displayName" className="sr-only">
+                <label htmlFor="displayName" className="sr-only">
                   Display Name
                 </label>
 
@@ -75,7 +75,7 @@ class RegisterForm extends Component {
                 />
               </div>
               <div>
-                <label HtmlFor="email-address" className="sr-only">
+                <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
 
@@ -91,7 +91,7 @@ class RegisterForm extends Component {
                 />
               </div>
               <div>
-                <label HtmlFor="password" className="sr-only">
+                <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <Input
@@ -105,7 +105,7 @@ class RegisterForm extends Component {
                 />
               </div>
               <div>
-                <label HtmlFor="password" className="sr-only">
+                <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <Input
@@ -125,7 +125,7 @@ class RegisterForm extends Component {
                 <div className="text-sm">
                   <a
                     onClick={this.onFormChange}
-                    href="#"
+                    href="/#"
                     className="font-medium text-gray-600 hover:text-gray-500"
                   >
                     Have an account? Login
@@ -135,7 +135,7 @@ class RegisterForm extends Component {
 
               <div className="text-sm">
                 <a
-                  href="#"
+                  href="/#"
                   className="font-medium text-gray-600 hover:text-gray-500"
                 >
                   Forgot your password?

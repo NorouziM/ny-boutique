@@ -17,7 +17,6 @@ import { setCurrentUser } from "./redux/userActions";
 class App extends React.Component {
   componentDidMount() {
     const { setCurrentUser } = this.props;
-
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUser(userAuth);

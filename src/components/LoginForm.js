@@ -21,7 +21,7 @@ class LoginForm extends Component {
     event.preventDefault();
 
     try {
-      const userAuth = await auth.signInWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
         this.state.email,
         this.state.password
       );
@@ -38,7 +38,7 @@ class LoginForm extends Component {
     return (
       <div
         style={{ minHeight: "90vh" }}
-        class="flex items-center justify-center px-4 sm:px-6 lg:px-8"
+        className="flex items-center justify-center px-4 sm:px-6 lg:px-8"
       >
         <div className="form max-w-md w-full space-y-12 -mt-48">
           <div>
@@ -50,7 +50,7 @@ class LoginForm extends Component {
             <Input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label for="email-address" class="sr-only">
+                <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
 
@@ -66,7 +66,7 @@ class LoginForm extends Component {
                 />
               </div>
               <div>
-                <label for="password" className="sr-only">
+                <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <Input
@@ -87,7 +87,7 @@ class LoginForm extends Component {
                 <div className="text-sm">
                   <a
                     onClick={this.onFormChange}
-                    href="#"
+                    href="!#"
                     className="font-medium text-gray-600 hover:text-gray-500"
                   >
                     Don't have an account? Register

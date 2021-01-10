@@ -10,6 +10,7 @@ import shopReducer from "./shopReducer";
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["shop"],
 };
 const rootReducer = combineReducers({
   cart: CartReducer,

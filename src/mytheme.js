@@ -1,4 +1,4 @@
-export default {
+export const mytheme = {
   // Alert
   alert: {
     base: "p-4 pl-12 relative rounded-lg leading-5",

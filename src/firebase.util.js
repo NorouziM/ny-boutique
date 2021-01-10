@@ -15,7 +15,7 @@ var firebaseConfig = {
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 } else {
-  firebase.app(); // if already initialized, use that one
+  firebase.app(); // if already initialized
 }
 firebase.analytics();
 export const auth = firebase.auth();
@@ -43,6 +43,17 @@ export const createUser = async (user, additionalData) => {
     }
   }
   return userRef;
+};
+
+export const addShopDataToDB = async (collectionKey, collectionsToAdd) => {
+  const batch = db.batch();
+
+  collectionsToAdd.forEach((itemsToAdd) => {
+    const collectionRef = db.collection(collectionKey);
+    const docRef = collectionRef.doc(itemsToAdd.title);
+    batch.set(docRef, itemsToAdd);
+  });
+  return batch.commit();
 };
 
 const provider = new firebase.auth.GoogleAuthProvider();

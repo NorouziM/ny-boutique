@@ -3,31 +3,19 @@ import React from 'react';
 import CollectionPreview from "../components/CollectionPreview"
 
 import { connect } from 'react-redux'
-import { db } from "../firebase.util";
 
-import {setShopData} from "../redux/shopActions";
+import {FetchShopDataAsync} from "../redux/shopActions";
 import { Spinner } from '../components/Spinner';
 
 class Shop extends React.Component {
-      constructor(){
-        super();
-        this.state = {
-          isLoading : true,
-        }
-      }
      componentDidMount() {
-        const collectionRef = db.collection("collections");
-        collectionRef.onSnapshot(async (snapShot) => {
-          const products = snapShot.docs.map((category) => category.data());
-          this.props.setShopData(products);
-          this.setState({isLoading : false})
-        });
+      this.props.FetchShopDataAsync();
      }
     render() { 
   
         return ( 
         <div>
-          { this.state.isLoading
+          { this.props.isLoading
             ? <Spinner size={28}/>
             : this.props.SHOP_DATA.map(({title,items,id,routeName }) => {
               return <CollectionPreview key={id} title={title} routeName={routeName} items={items} />
@@ -39,9 +27,10 @@ class Shop extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setShopData: (collections) => dispatch(setShopData(collections))
+  FetchShopDataAsync: () => dispatch(FetchShopDataAsync())
 })
-const mapStateToProps = ({shop:{SHOP_DATA}}) => ({
+const mapStateToProps = ({shop:{SHOP_DATA,isLoading}}) => ({
   SHOP_DATA,
+  isLoading
 })
 export default connect(mapStateToProps,mapDispatchToProps)(Shop)

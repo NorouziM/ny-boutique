@@ -1,19 +1,21 @@
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 
 import "./App.css";
-import Homepage from "./pages/Homepage.jsx";
-import Shop from "./pages/Shop";
-import Checkout from "./pages/Checkout";
-import LoginRegister from "./pages/LoginRegister.jsx";
-import Category from "./pages/Category";
-
+import { Spinner } from "./components/Spinner";
 import Nav from "./components/Nav";
 
 import { auth, createUser } from "./firebase.util";
 
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/userActions";
+// Dynamic Imorting with React Lazy
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Shop = lazy(() => import("./pages/Shop"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const Category = lazy(() => import("./pages/Category"));
+const LoginRegister = lazy(() => import("./pages/LoginRegister.jsx"));
+
 class App extends React.Component {
   componentDidMount() {
     const { setCurrentUser } = this.props;
@@ -37,24 +39,27 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
-        <Nav />
-        <Route exact path="/">
-          <Homepage />.
-        </Route>
-        <Route exact path="/shop">
-          <Shop />
-        </Route>
-        <Route path="/shop/:category">
-          <Category />
-        </Route>
-        <Route exact path="/checkout">
-          <Checkout />
-        </Route>
-        <Route exact path="/login">
-          {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
-        </Route>
-      </Router>
+      //For asynchrnous importing we add suspense to wait for importing and don't get error
+      <Suspense fallback={<Spinner size={28} />}>
+        <Router>
+          <Nav />
+          <Route exact path="/">
+            <Homepage />.
+          </Route>
+          <Route exact path="/shop">
+            <Shop />
+          </Route>
+          <Route path="/shop/:category">
+            <Category />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout />
+          </Route>
+          <Route exact path="/login">
+            {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
+          </Route>
+        </Router>
+      </Suspense>
     );
   }
 }

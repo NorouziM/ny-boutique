@@ -1,10 +1,13 @@
 import React from "react";
 import Directory from "../components/Directory";
+import HomePreviewProducts from "../components/HomePreviewProducts";
 
-export default function Homepage() {
-  return (
+
+
+const HomePage =  () => {
     <div>
       <Directory />
+      <HomePreviewProducts />
     </div>
-  );
 }
+export default HomePage;

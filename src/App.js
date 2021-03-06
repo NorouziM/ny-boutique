@@ -9,6 +9,7 @@ import { auth, createUser } from "./firebase.util";
 
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/userActions";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 // Dynamic Imorting with React Lazy
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Shop = lazy(() => import("./pages/Shop"));
@@ -39,27 +40,29 @@ class App extends React.Component {
   }
   render() {
     return (
-      //For asynchrnous importing we add suspense to wait for importing and don't get error
-      <Suspense fallback={<Spinner size={28} />}>
-        <Router>
-          <Nav />
-          <Route exact path="/">
-            <Homepage />.
-          </Route>
-          <Route exact path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/shop/:category">
-            <Category />
-          </Route>
-          <Route exact path="/checkout">
-            <Checkout />
-          </Route>
-          <Route exact path="/login">
-            {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
-          </Route>
-        </Router>
-      </Suspense>
+      // For asynchrnous importing we add suspense to wait for importing and don't get error
+      <ErrorBoundary>
+        <Suspense fallback={<Spinner size={28} />}>
+          <Router>
+            <Nav />
+            <Route exact path="/">
+              <Homepage />.
+            </Route>
+            <Route exact path="/shop">
+              <Shop />
+            </Route>
+            <Route path="/shop/:category">
+              <Category />
+            </Route>
+            <Route exact path="/checkout">
+              <Checkout />
+            </Route>
+            <Route exact path="/login">
+              {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
+            </Route>
+          </Router>
+        </Suspense>
+      </ErrorBoundary>
     );
   }
 }

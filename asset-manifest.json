@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/ny-boutique/static/css/main.acf22cd4.chunk.css",
-    "main.js": "/ny-boutique/static/js/main.e6d9db32.chunk.js",
-    "main.js.map": "/ny-boutique/static/js/main.e6d9db32.chunk.js.map",
-    "runtime-main.js": "/ny-boutique/static/js/runtime-main.6a28d6d1.js",
-    "runtime-main.js.map": "/ny-boutique/static/js/runtime-main.6a28d6d1.js.map",
+    "main.js": "/ny-boutique/static/js/main.b5422a9f.chunk.js",
+    "main.js.map": "/ny-boutique/static/js/main.b5422a9f.chunk.js.map",
+    "runtime-main.js": "/ny-boutique/static/js/runtime-main.9922a87b.js",
+    "runtime-main.js.map": "/ny-boutique/static/js/runtime-main.9922a87b.js.map",
     "static/js/2.75fc4986.chunk.js": "/ny-boutique/static/js/2.75fc4986.chunk.js",
     "static/js/2.75fc4986.chunk.js.map": "/ny-boutique/static/js/2.75fc4986.chunk.js.map",
-    "static/js/3.9a58097d.chunk.js": "/ny-boutique/static/js/3.9a58097d.chunk.js",
-    "static/js/3.9a58097d.chunk.js.map": "/ny-boutique/static/js/3.9a58097d.chunk.js.map",
-    "static/js/4.0e2ecb6a.chunk.js": "/ny-boutique/static/js/4.0e2ecb6a.chunk.js",
-    "static/js/4.0e2ecb6a.chunk.js.map": "/ny-boutique/static/js/4.0e2ecb6a.chunk.js.map",
-    "static/js/5.0154b832.chunk.js": "/ny-boutique/static/js/5.0154b832.chunk.js",
-    "static/js/5.0154b832.chunk.js.map": "/ny-boutique/static/js/5.0154b832.chunk.js.map",
+    "static/js/3.58474172.chunk.js": "/ny-boutique/static/js/3.58474172.chunk.js",
+    "static/js/3.58474172.chunk.js.map": "/ny-boutique/static/js/3.58474172.chunk.js.map",
+    "static/js/4.39c2c4d2.chunk.js": "/ny-boutique/static/js/4.39c2c4d2.chunk.js",
+    "static/js/4.39c2c4d2.chunk.js.map": "/ny-boutique/static/js/4.39c2c4d2.chunk.js.map",
+    "static/js/5.6ff2074f.chunk.js": "/ny-boutique/static/js/5.6ff2074f.chunk.js",
+    "static/js/5.6ff2074f.chunk.js.map": "/ny-boutique/static/js/5.6ff2074f.chunk.js.map",
     "static/js/6.3c12b7c8.chunk.js": "/ny-boutique/static/js/6.3c12b7c8.chunk.js",
     "static/js/6.3c12b7c8.chunk.js.map": "/ny-boutique/static/js/6.3c12b7c8.chunk.js.map",
     "static/js/7.06fa2f64.chunk.js": "/ny-boutique/static/js/7.06fa2f64.chunk.js",
@@ -23,9 +23,9 @@
     "static/media/logo.6ce24c58.svg": "/ny-boutique/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6a28d6d1.js",
+    "static/js/runtime-main.9922a87b.js",
     "static/js/2.75fc4986.chunk.js",
     "static/css/main.acf22cd4.chunk.css",
-    "static/js/main.e6d9db32.chunk.js"
+    "static/js/main.b5422a9f.chunk.js"
   ]
 }

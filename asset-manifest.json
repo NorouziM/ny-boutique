@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ny-boutique/static/css/main.acf22cd4.chunk.css",
-    "main.js": "/ny-boutique/static/js/main.2ae51d58.chunk.js",
-    "main.js.map": "/ny-boutique/static/js/main.2ae51d58.chunk.js.map",
-    "runtime-main.js": "/ny-boutique/static/js/runtime-main.5e56d46e.js",
-    "runtime-main.js.map": "/ny-boutique/static/js/runtime-main.5e56d46e.js.map",
+    "main.js": "/ny-boutique/static/js/main.e6d9db32.chunk.js",
+    "main.js.map": "/ny-boutique/static/js/main.e6d9db32.chunk.js.map",
+    "runtime-main.js": "/ny-boutique/static/js/runtime-main.6a28d6d1.js",
+    "runtime-main.js.map": "/ny-boutique/static/js/runtime-main.6a28d6d1.js.map",
     "static/js/2.75fc4986.chunk.js": "/ny-boutique/static/js/2.75fc4986.chunk.js",
     "static/js/2.75fc4986.chunk.js.map": "/ny-boutique/static/js/2.75fc4986.chunk.js.map",
-    "static/js/3.09a614af.chunk.js": "/ny-boutique/static/js/3.09a614af.chunk.js",
-    "static/js/3.09a614af.chunk.js.map": "/ny-boutique/static/js/3.09a614af.chunk.js.map",
+    "static/js/3.9a58097d.chunk.js": "/ny-boutique/static/js/3.9a58097d.chunk.js",
+    "static/js/3.9a58097d.chunk.js.map": "/ny-boutique/static/js/3.9a58097d.chunk.js.map",
     "static/js/4.0e2ecb6a.chunk.js": "/ny-boutique/static/js/4.0e2ecb6a.chunk.js",
     "static/js/4.0e2ecb6a.chunk.js.map": "/ny-boutique/static/js/4.0e2ecb6a.chunk.js.map",
     "static/js/5.0154b832.chunk.js": "/ny-boutique/static/js/5.0154b832.chunk.js",
@@ -23,9 +23,9 @@
     "static/media/logo.6ce24c58.svg": "/ny-boutique/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5e56d46e.js",
+    "static/js/runtime-main.6a28d6d1.js",
     "static/js/2.75fc4986.chunk.js",
     "static/css/main.acf22cd4.chunk.css",
-    "static/js/main.2ae51d58.chunk.js"
+    "static/js/main.e6d9db32.chunk.js"
   ]
 }

@@ -40,29 +40,34 @@ class App extends React.Component {
   }
   render() {
     return (
-      // For asynchrnous importing we add suspense to wait for importing and don't get error
-      <ErrorBoundary>
-        <Suspense fallback={<Spinner size={28} />}>
-          <Router>
-            <Nav />
-            <Route exact path="/">
-              <Homepage />.
-            </Route>
-            <Route exact path="/shop">
-              <Shop />
-            </Route>
-            <Route path="/shop/:category">
-              <Category />
-            </Route>
-            <Route exact path="/checkout">
-              <Checkout />
-            </Route>
-            <Route exact path="/login">
-              {this.props.currentUser ? <Redirect to="/" /> : <LoginRegister />}
-            </Route>
-          </Router>
-        </Suspense>
-      </ErrorBoundary>
+      <div>
+        <Nav />
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner size={28} />}>
+            <Router>
+              <Route exact path="/">
+                <Homepage />.
+              </Route>
+              <Route exact path="/shop">
+                <Shop />
+              </Route>
+              <Route path="/shop/:category">
+                <Category />
+              </Route>
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>
+              <Route exact path="/login">
+                {this.props.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <LoginRegister />
+                )}
+              </Route>
+            </Router>
+          </Suspense>
+        </ErrorBoundary>
+      </div>
     );
   }
 }

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 
 import "./App.css";

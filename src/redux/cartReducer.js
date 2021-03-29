@@ -27,7 +27,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       };
     }
     case "DECREASE_QUANTITY": {
-      console.log("DECREASE_QUANTITY");
       return {
         ...state,
         cartItems: deacreaseQuantityFunc(state.cartItems, action.payload),

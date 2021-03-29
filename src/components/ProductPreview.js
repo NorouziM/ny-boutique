@@ -5,7 +5,6 @@ import { addItem } from "./../redux/cartActions";
 const ProductPreview = (props) => {
   const { name, price, imageUrl } = props.item;
   const { addItem } = props;
-  console.log(props);
   return (
     <div>
       <div className="flex flex-col justify-center items-center max-w-sm mx-auto my-8">

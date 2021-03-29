@@ -4,10 +4,10 @@ import HomePreviewProducts from "../components/HomePreviewProducts";
 
 
 
-const HomePage =  () => {
+const HomePage =  () => (
     <div>
       <Directory />
       <HomePreviewProducts />
     </div>
-}
+)
 export default HomePage;

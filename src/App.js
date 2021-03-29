@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  MemoryRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 
 import "./App.css";
@@ -45,36 +40,34 @@ class App extends React.Component {
   }
   render() {
     return (
-      <MemoryRouter>
-        <div>
+      <div>
+        <Router>
           <Nav />
           <ErrorBoundary>
             <Suspense fallback={<Spinner size={28} />}>
-              <Router>
-                <Route exact path="/">
-                  <Homepage />.
-                </Route>
-                <Route exact path="/shop">
-                  <Shop />
-                </Route>
-                <Route path="/shop/:category">
-                  <Category />
-                </Route>
-                <Route exact path="/checkout">
-                  <Checkout />
-                </Route>
-                <Route exact path="/login">
-                  {this.props.currentUser ? (
-                    <Redirect to="/" />
-                  ) : (
-                    <LoginRegister />
-                  )}
-                </Route>
-              </Router>
+              <Route exact path="/">
+                <Homepage />.
+              </Route>
+              <Route exact path="/shop">
+                <Shop />
+              </Route>
+              <Route path="/shop/:category">
+                <Category />
+              </Route>
+              <Route exact path="/checkout">
+                <Checkout />
+              </Route>
+              <Route exact path="/login">
+                {this.props.currentUser ? (
+                  <Redirect to="/" />
+                ) : (
+                  <LoginRegister />
+                )}
+              </Route>
             </Suspense>
           </ErrorBoundary>
-        </div>
-      </MemoryRouter>
+        </Router>
+      </div>
     );
   }
 }

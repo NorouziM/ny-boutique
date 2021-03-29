@@ -2,7 +2,6 @@ import { createSelector } from "reselect";
 
 export const addToCart = (cartItems, newCartItem) => {
   if (cartItems) {
-    console.log(cartItems);
     const isItemExist = cartItems.find(
       (cartItem) => cartItem.id === newCartItem.id
     );

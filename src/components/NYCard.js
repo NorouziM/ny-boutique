@@ -28,7 +28,7 @@ export default function NYCard({ size, title, imageUrl, linkUrl }) {
           <h1 className="text-5xl mb-1 font-bold text-white">
             {title.toUpperCase()}
           </h1>
-          <Link to={`/${linkUrl}`}>
+          <Link to={process.env.PUBLIC_URL + `/${linkUrl}`}>
             <span className="text-lg text-white">SHOP NOW</span>
           </Link>
         </div>

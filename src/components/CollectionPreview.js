@@ -6,7 +6,7 @@ function CollectionPreview({ title, items, routeName }) {
   return (
     <div>
       <div className="mx-auto text-center mt-32 ">
-        <Link to={`/shop/${routeName}`}>
+        <Link to={process.env.PUBLIC_URL + `/shop/${routeName}`}>
           <h1 className="text-4xl mb-12 mt-4">{title}</h1>
         </Link>
       </div>

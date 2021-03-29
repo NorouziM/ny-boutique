@@ -45,19 +45,19 @@ class App extends React.Component {
           <Nav />
           <ErrorBoundary>
             <Suspense fallback={<Spinner size={28} />}>
-              <Route exact path="/">
+              <Route exact path={process.env.PUBLIC_URL + "/"}>
                 <Homepage />.
               </Route>
-              <Route exact path="/shop">
+              <Route exact path={process.env.PUBLIC_URL + "/shop"}>
                 <Shop />
               </Route>
-              <Route path="/shop/:category">
+              <Route path={process.env.PUBLIC_URL + "/shop/:category"}>
                 <Category />
               </Route>
-              <Route exact path="/checkout">
+              <Route exact path={process.env.PUBLIC_URL + "/checkout"}>
                 <Checkout />
               </Route>
-              <Route exact path="/login">
+              <Route exact path={process.env.PUBLIC_URL + "/login"}>
                 {this.props.currentUser ? (
                   <Redirect to="/" />
                 ) : (

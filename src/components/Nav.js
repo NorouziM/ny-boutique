@@ -10,7 +10,7 @@ function Nav({ currentUser, hidden }) {
   return (
     <nav className="flex items-center fixed top-0 w-full justify-between px-6 bg-gray-50 dark:bg-gray-800 shadow z-10">
       <a className="text-gray-700 dark:text-gray-400" href="/#">
-        <Link to="/">
+        <Link to={process.env.PUBLIC_URL + "/"}>
           <img
             className="w-24 h-24 text-purple-600 ml-8"
             alt="Logo"
@@ -45,7 +45,7 @@ function Nav({ currentUser, hidden }) {
                 </Button>
               ) : null}
               <li>
-                <Link to="/shop">
+                <Link to={process.env.PUBLIC_URL + "/shop"}>
                   <Button
                     className="focus:ring-2 focus:ring-offset-1 focus:ring-gray-300"
                     layout="link"
@@ -73,7 +73,7 @@ function Nav({ currentUser, hidden }) {
                     Sign Out
                   </Button>
                 ) : (
-                  <Link to="login">
+                  <Link to={process.env.PUBLIC_URL + "/login"}>
                     <Button className="focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                       Login
                     </Button>

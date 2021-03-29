@@ -73,7 +73,7 @@ function Nav({ currentUser, hidden }) {
                     Sign Out
                   </Button>
                 ) : (
-                  <Link to="/login">
+                  <Link to="login">
                     <Button className="focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                       Login
                     </Button>

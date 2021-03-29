@@ -87,7 +87,6 @@ class LoginForm extends Component {
                 <div className="text-sm">
                   <a
                     onClick={this.onFormChange}
-                    href="!#"
                     className="font-medium text-gray-600 hover:text-gray-500"
                   >
                     Don't have an account? Register

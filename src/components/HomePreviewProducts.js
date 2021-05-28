@@ -13,7 +13,7 @@ class Shop extends React.Component {
   }
   render() {
     return (
-      <div class="mt-96">
+      <div style={{ marginTop: "42rem" }}>
         {this.props.isLoading ? (
           <Spinner size={28} />
         ) : (
